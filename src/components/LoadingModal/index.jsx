@@ -5,7 +5,7 @@ const LoadingModal = () => {
     <div className="modal modallogin">
       <div className="modal__wrapper">
         <div className="modal__wrapper-close">
-          <img src="img/close_icon.svg" alt="CFD Register" />
+          <img src="/img/close_icon.svg" alt="CFD Register" />
         </div>
         <div className="modal__wrapper-content mdlogin">
           <div className="form__bottom">
@@ -17,13 +17,13 @@ const LoadingModal = () => {
           <div className="social">
             <a className="btn btn--google" href="#">
               <i>
-                <img src="img/icon-google.svg" alt="Google CFD" />
+                <img src="/img/icon-google.svg" alt="Google CFD" />
               </i>
               <span>Đăng nhập bằng Google</span>
             </a>
             <a className="btn btn--facebook" href="#">
               <i>
-                <img src="img/icon-facebook-v2.svg" alt="Google CFD" />
+                <img src="/img/icon-facebook-v2.svg" alt="Google CFD" />
               </i>
               <span>Đăng nhập bằng Google</span>
             </a>
@@ -70,13 +70,13 @@ const LoadingModal = () => {
           <div className="social">
             <a className="btn btn--google" href="#">
               <i>
-                <img src="img/icon-google.svg" alt="Google CFD" />
+                <img src="/img/icon-google.svg" alt="Google CFD" />
               </i>
               <span>Đăng ký bằng Google</span>
             </a>
             <a className="btn btn--facebook" href="#">
               <i>
-                <img src="img/icon-facebook-v2.svg" alt="Google CFD" />
+                <img src="/img/icon-facebook-v2.svg" alt="Google CFD" />
               </i>
               <span>Đăng ký bằng Google</span>
             </a>

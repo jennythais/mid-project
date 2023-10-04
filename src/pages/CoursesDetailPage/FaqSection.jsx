@@ -1,6 +1,6 @@
 import React from "react";
 
-const Faq = () => {
+const FaqSection = () => {
   return (
     <section className="faq --scpadding">
       <div className="container">
@@ -202,4 +202,4 @@ const Faq = () => {
   );
 };
 
-export default Faq;
+export default FaqSection;

@@ -48,7 +48,7 @@ const BlogPage = () => {
               <div className="content__info">
                 <div className="user">
                   <div className="user__img">
-                    <img src="img/avatar_nghia.jpg" alt="Avatar teacher" />
+                    <img src="/img/avatar_nghia.jpg" alt="Avatar teacher" />
                   </div>
                   <p className="user__name">Trần Nghĩa</p>
                 </div>
@@ -77,7 +77,7 @@ const BlogPage = () => {
               <div className="content__info">
                 <div className="user">
                   <div className="user__img">
-                    <img src="img/avatar_nghia.jpg" alt="Avatar teacher" />
+                    <img src="/img/avatar_nghia.jpg" alt="Avatar teacher" />
                   </div>
                   <p className="user__name">Trần Nghĩa</p>
                 </div>
@@ -106,7 +106,7 @@ const BlogPage = () => {
               <div className="content__info">
                 <div className="user">
                   <div className="user__img">
-                    <img src="img/avatar_nghia.jpg" alt="Avatar teacher" />
+                    <img src="/img/avatar_nghia.jpg" alt="Avatar teacher" />
                   </div>
                   <p className="user__name">Trần Nghĩa</p>
                 </div>
@@ -134,7 +134,7 @@ const BlogPage = () => {
               <div className="content__info">
                 <div className="user">
                   <div className="user__img">
-                    <img src="img/avatar_nghia.jpg" alt="Avatar teacher" />
+                    <img src="/img/avatar_nghia.jpg" alt="Avatar teacher" />
                   </div>
                   <p className="user__name">Trần Nghĩa</p>
                 </div>
@@ -163,7 +163,7 @@ const BlogPage = () => {
               <div className="content__info">
                 <div className="user">
                   <div className="user__img">
-                    <img src="img/avatar_nghia.jpg" alt="Avatar teacher" />
+                    <img src="/img/avatar_nghia.jpg" alt="Avatar teacher" />
                   </div>
                   <p className="user__name">Trần Nghĩa</p>
                 </div>
@@ -191,7 +191,7 @@ const BlogPage = () => {
               <div className="content__info">
                 <div className="user">
                   <div className="user__img">
-                    <img src="img/avatar_nghia.jpg" alt="Avatar teacher" />
+                    <img src="/img/avatar_nghia.jpg" alt="Avatar teacher" />
                   </div>
                   <p className="user__name">Trần Nghĩa</p>
                 </div>
@@ -204,7 +204,7 @@ const BlogPage = () => {
           <li>
             <a href="#">
               <i>
-                <img src="img/iconprev.svg" alt />
+                <img src="/img/iconprev.svg" alt />
               </i>
             </a>
           </li>
@@ -225,7 +225,7 @@ const BlogPage = () => {
           <li>
             <a href="#">
               <i>
-                <img src="img/iconprev.svg" alt />
+                <img src="/img/iconprev.svg" alt />
               </i>
             </a>
           </li>

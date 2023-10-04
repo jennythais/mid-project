@@ -1,20 +1,23 @@
+import { Empty } from "antd";
 import React from "react";
+import { useAuthContext } from "../../context/AuthContext";
+import CoursePayment from "../../components/CoursePayment/index";
 
 const MyPayment = () => {
+  const { paymentInfo } = useAuthContext();
+  // console.log("paymentInfo", paymentInfo);
   return (
-    <div classname="tab__content-item" style={{ display: "block" }}>
-      <div classname="itemhistory">
-        <div classname="name">Frontend Newbie</div>
-        <div classname="payment">Chuyển khoản</div>
-        <div classname="date">05/01/2022</div>
-        <div classname="money">4.500.000 VND</div>
-      </div>
-      <div classname="itemhistory">
-        <div classname="name">Web Responsive</div>
-        <div classname="payment">Tiền mặt</div>
-        <div classname="date">14/07/2022</div>
-        <div classname="money">4.900.000 VND</div>
-      </div>
+    <div className="tab__content-item" style={{ display: "block" }}>
+      {!!!paymentInfo.length && (
+        <Empty description="Not found data" style={{ margin: "0 auto" }} />
+      )}
+      {!!paymentInfo.length && 
+        paymentInfo.map((item, index) => (
+          <CoursePayment
+            key={item.id || new Date().getTime() + index}
+            {...item}
+          />
+        ))}
     </div>
   );
 };

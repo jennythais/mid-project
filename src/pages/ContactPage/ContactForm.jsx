@@ -1,34 +1,45 @@
 import React from "react";
-import { useState } from "react";
 import Input from "../../components/Input";
 import { Select } from "../../components/Select";
 import TextArea from "../../components/TextArea";
-import validate from "../../utils/validate";
+import useForm from "../../hooks/useForm";
+import { regrexRule, requireRule } from "../../utils/validate";
+
+const rules = {
+  name: [requireRule("Vui lòng nhập tên")],
+  email: [
+    requireRule("Vui lòng nhập email"),
+    regrexRule("email", "Vui lòng nhập đúng định dạng email"),
+  ],
+  phone: [
+    requireRule("Vui lòng nhập phone"),
+    regrexRule("phone", "Vui lòng nhập đúng định dạng phone"),
+  ],
+  topic: [requireRule("Vui lòng nhập topic")],
+  content: [requireRule("Vui lòng nhập content")],
+};
 
 const ContactForm = ({ handleSubmitForm }) => {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    topic: "",
-    content: "",
-  });
-  const [error, setError] = useState({});
+  const { form, error, register, validate } = useForm(
+    {
+      name: "",
+      email: "",
+      phone: "",
+      topic: "",
+      content: "",
+    },
+    rules
+  );
   const _onSubmit = () => {
-    const errorObj = validate(rule, form);
-    setError(errorObj);
-    if (Object.keys(errorObj)?.length === 0) {
-      console.log("Validata sucess");
+    const errorObject = validate();
+    if (Object.keys(errorObject).length === 0) {
+      console.log("Submit success");
+      handleSubmitForm?.(form);
+    } else {
+      console.log("Submit error: ", errorObject);
     }
   };
 
-  const register = (registerField) => {
-    return {
-      error: error[registerField],
-      value: form[registerField] || "",
-      onChange: (ev) => setForm({ ...form, [registerField]: ev.target.value }),
-    };
-  };
   return (
     <div className="form">
       <h3 className="title --t3">Gửi yêu cầu hỗ trợ</h3>
@@ -75,7 +86,7 @@ const ContactForm = ({ handleSubmitForm }) => {
       />
       <div className="btncontrol">
         <button className="btn btn--primary" onClick={_onSubmit}>
-          Gửi{" "}
+          Gửi
         </button>
       </div>
     </div>

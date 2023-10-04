@@ -1,6 +1,61 @@
 import React from "react";
+import { useEffect } from "react";
 
 const TestimonialSection = () => {
+  useEffect(() => {
+    function testimonialSlider() {
+      if ($(".testimonial__slider").length) {
+        var $carousel = $(".testimonial__slider .images .list").flickity({
+          contain: true,
+          wrapAround: false,
+          freeScroll: false,
+          cellAlign: "center",
+          lazyLoad: 2,
+          imagesLoaded: true,
+          prevNextButtons: false,
+          dragThreshold: 0,
+          on: {
+            ready: function () {
+              let dotsSlideTes = $(".testimonial__slider .flickity-page-dots");
+              let dotsNew = $(".testimonial__slider .dots");
+              dotsSlideTes.appendTo(dotsNew);
+            },
+            change: function (index) {
+              $(".testimonial__slider .ct").removeClass("active");
+              $(".testimonial__slider .ct-" + (index + 1)).addClass("active");
+            },
+          },
+        });
+        var flkty = $carousel.data("flickity");
+        var $imgs = $(".testimonial__slider .carousel-cell picture img");
+
+        $carousel.on("scroll.flickity", function (event, progress) {
+          flkty.slides.forEach(function (slide, i) {
+            var img = $imgs[i];
+            var x = ((slide.target + flkty.x) * -1) / 2;
+            img.style.transform = "translateX( " + x + "px)";
+          });
+        });
+
+        let ctrPrevTes = $(".testimonial .control .control__prev"),
+          ctrNextTes = $(".testimonial .control .control__next");
+
+        ctrPrevTes.on("click", function () {
+          $carousel.flickity("previous", true);
+        });
+        ctrNextTes.on("click", function () {
+          $carousel.flickity("next", true);
+        });
+      }
+    }
+    const myTimeout = setTimeout(() => {
+      testimonialSlider();
+    }, 300);
+
+    return () => {
+      clearTimeout(myTimeout);
+    };
+  }, []);
   return (
     <section className="testimonial --scpadding">
       <div className="container">
@@ -68,7 +123,7 @@ const TestimonialSection = () => {
                     <div className="bottom">
                       <span className="label">Học viên CFD1</span>
                       <a href="https://www.facebook.com/" target="_blank">
-                        <img src="img/facebook.svg" alt />
+                        <img src="/img/facebook.svg" alt />
                       </a>
                     </div>
                   </div>
@@ -86,7 +141,7 @@ const TestimonialSection = () => {
                     <div className="bottom">
                       <span className="label">Học viên CFD2</span>
                       <a href="https://www.facebook.com/" target="_blank">
-                        <img src="img/facebook.svg" alt />
+                        <img src="/img/facebook.svg" alt />
                       </a>
                     </div>
                   </div>
@@ -107,7 +162,7 @@ const TestimonialSection = () => {
                     <div className="bottom">
                       <span className="label">Học viên CFD1</span>
                       <a href="https://www.facebook.com/" target="_blank">
-                        <img src="img/facebook.svg" alt />
+                        <img src="/img/facebook.svg" alt />
                       </a>
                     </div>
                   </div>
@@ -125,7 +180,7 @@ const TestimonialSection = () => {
                     <div className="bottom">
                       <span className="label">Học viên CFD1</span>
                       <a href="https://www.facebook.com/" target="_blank">
-                        <img src="img/facebook.svg" alt />
+                        <img src="/img/facebook.svg" alt />
                       </a>
                     </div>
                   </div>
@@ -164,7 +219,7 @@ const TestimonialSection = () => {
                         <div className="bottom">
                           <span className="label">Học viên CFD1</span>
                           <a href="https://www.facebook.com/" target="_blank">
-                            <img src="img/facebook.svg" alt />
+                            <img src="/img/facebook.svg" alt />
                           </a>
                         </div>
                       </div>
@@ -195,7 +250,7 @@ const TestimonialSection = () => {
                       <div className="bottom">
                         <span className="label">Học viên CFD2</span>
                         <a href="https://www.facebook.com/" target="_blank">
-                          <img src="img/facebook.svg" alt />
+                          <img src="/img/facebook.svg" alt />
                         </a>
                       </div>
                     </div>
@@ -232,7 +287,7 @@ const TestimonialSection = () => {
                         <div className="bottom">
                           <span className="label">Học viên CFD1</span>
                           <a href="https://www.facebook.com/" target="_blank">
-                            <img src="img/facebook.svg" alt />
+                            <img src="/img/facebook.svg" alt />
                           </a>
                         </div>
                       </div>
@@ -266,7 +321,7 @@ const TestimonialSection = () => {
                         <div className="bottom">
                           <span className="label">Học viên CFD1</span>
                           <a href="https://www.facebook.com/" target="_blank">
-                            <img src="img/facebook.svg" alt />
+                            <img src="/img/facebook.svg" alt />
                           </a>
                         </div>
                       </div>

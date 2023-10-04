@@ -16,32 +16,38 @@ import Page404 from "./pages/Page404";
 import MyInfo from "./pages/StudentProfilePage/MyInfo";
 import MyCourse from "./pages/StudentProfilePage/MyCourse";
 import MyPayment from "./pages/StudentProfilePage/MyPayment";
+import PATHS from "./constants/paths";
+import PrivateRoute from "./components/PrivateRoute";
 
 // App.jsx
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MainLayout />}>
+        <Route path={PATHS.MAIN} element={<MainLayout />}>
           <Route index element={<HomePage />} />
 
-          <Route path="/course" element={<CoursesPage />} />
-          <Route path="/course/:courseId" element={<CoursesDetailPage />} />
-          <Route path="/course-order" element={<CoursesOrderPage />} />
+          <Route path={PATHS.COURSE.INDEX} element={<CoursesPage />} />
+          <Route path={PATHS.COURSE.DETAIL} element={<CoursesDetailPage />} />
+          <Route path={PATHS.COURSE.ORDER} element={<CoursesOrderPage />} />
 
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/blog/:blogId" element={<BlogDetailPage />} />
-
-          <Route path="/profile" element={<StudentProfilePage />}>
-            <Route index element={<MyInfo />} />
-            <Route path="/profile/my-course" element={<MyCourse />} />
-            <Route path="/profile/my-payment" element={<MyPayment />} />
+          {/* Private route */}
+          <Route element={<PrivateRoute redirectPath={PATHS.MAIN} />}>
+            <Route path={PATHS.COURSE.ORDER} element={<CoursesOrderPage />} />
+            <Route path={PATHS.PROFILE.INDEX} element={<StudentProfilePage />}>
+              <Route index element={<MyInfo />} />
+              <Route path={PATHS.PROFILE.MY_COURSE} element={<MyCourse />} />
+              <Route path={PATHS.PROFILE.MY_PAYMENT} element={<MyPayment />} />
+            </Route>
           </Route>
 
-          <Route path="/payment-method" element={<PaymentPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path={PATHS.BLOG.INDEX} element={<BlogPage />} />
+          <Route path={PATHS.BLOG.DETAIL} element={<BlogDetailPage />} />
+
+          <Route path={PATHS.PAYMENT} element={<PaymentPage />} />
+          <Route path={PATHS.CONTACT} element={<ContactPage />} />
+          <Route path={PATHS.ABOUT} element={<AboutPage />} />
+          <Route path={PATHS.PRIVACY} element={<PrivacyPage />} />
 
           <Route path="*" element={<Page404 />} />
         </Route>

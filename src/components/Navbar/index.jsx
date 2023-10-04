@@ -5,7 +5,7 @@ const Nav = () => {
     <nav className="navbar">
       <ul className="navbar__main">
         <li className="navbar__link">
-          <NavLink to="/" className="navbar__item active">
+          <NavLink to="/" className="navbar__item">
             Trang chủ
           </NavLink>
         </li>
@@ -20,7 +20,7 @@ const Nav = () => {
           </NavLink>
         </li>
         <li className="navbar__link">
-          <NavLink href="/blog" className="navbar__item">
+          <NavLink to="/blog" className="navbar__item">
             Bài viết
           </NavLink>
         </li>

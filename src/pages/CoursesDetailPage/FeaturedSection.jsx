@@ -1,9 +1,9 @@
 import React from "react";
 
-const Featured = () => {
+const FeaturedSection = () => {
   return (
     <section className="featured">
-      <img src="img/icon-cfd.svg" alt className="featured__c" />
+      <img src="/img/icon-cfd.svg" alt className="featured__c" />
       <div className="container">
         <div className="featured__title">
           <h2 className="title --t2 --white">
@@ -75,4 +75,4 @@ const Featured = () => {
   );
 };
 
-export default Featured;
+export default FeaturedSection;

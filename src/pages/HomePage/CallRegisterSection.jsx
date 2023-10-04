@@ -1,4 +1,6 @@
 import React from "react";
+import Button from "../../components/Button";
+import PATHS from "../../constants/paths";
 
 const CallRegisterSection = () => {
   return (
@@ -14,12 +16,8 @@ const CallRegisterSection = () => {
             Circle để cùng nhau học hỏi, lan toả và chia sẻ những kinh nghiệm
             quý giá cho cộng đồng.
           </p>
-          <a href="courses.html" className="btn btn--primary">
-            Tham gia Khoá học
-          </a>
-          <a href="contact.html" className="btn btn--border --black">
-            Liên hệ tư vấn
-          </a>
+          <Button link={PATHS.COURSE.INDEX}>Tham gia Khoá học</Button>
+          <Button link={PATHS.CONTACT}>Liên hệ tư vấn</Button>
         </div>
       </div>
     </section>

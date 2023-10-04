@@ -17,7 +17,7 @@ const AboutPage = () => {
       <section className="aboutstory">
         <div className="container">
           <div className="aboutstory__img">
-            <img src="img/cfd-circle-team.jpg" alt />
+            <img src="/img/cfd-circle-team.jpg" alt />
           </div>
           <div className="aboutstory__content">
             <h1 className="title --t2">
@@ -130,7 +130,7 @@ const AboutPage = () => {
           </h2>
           <div className="aboutstudy__item">
             <div className="aboutstudy__item-img">
-              <img src="img/cfd-circle-offline.jpg" alt />
+              <img src="/img/cfd-circle-offline.jpg" alt />
             </div>
             <div className="aboutstudy__item-content">
               <h4 className="title --t3">Học offline tại văn phòng</h4>
@@ -146,7 +146,7 @@ const AboutPage = () => {
           </div>
           <div className="aboutstudy__item">
             <div className="aboutstudy__item-img">
-              <img src="img/cfd-circle-online.jpg" alt />
+              <img src="/img/cfd-circle-online.jpg" alt />
             </div>
             <div className="aboutstudy__item-content">
               <h4 className="title --t3">Học online với lớp offline.</h4>
@@ -163,7 +163,7 @@ const AboutPage = () => {
           </div>
           <div className="aboutstudy__item">
             <div className="aboutstudy__item-img">
-              <img src="img/cfd-circle-video.jpg" alt />
+              <img src="/img/cfd-circle-video.jpg" alt />
             </div>
             <div className="aboutstudy__item-content">
               <h4 className="title --t3">

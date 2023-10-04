@@ -12,7 +12,7 @@ const validate = (rules, values) => {
       if (rule.required) {
         // check required
         if (!!!values[ruleKey]) {
-          errObj[ruleKey] = rule.message || "Vui lòng nhập";
+          errObj[ruleKey] = rule.message || "Please input";
           break;
         }
       }
@@ -27,7 +27,24 @@ const validate = (rules, values) => {
           pattern = new RegExp(rule.regrex, "gi");
         }
         if (!pattern.test(values[ruleKey])) {
-          errObj[ruleKey] = rule.message || "Vui lòng nhập đúng định dạng";
+          errObj[ruleKey] = rule.message || "Wrong format. Please try agian";
+          break;
+        }
+      }
+
+      //Case: Function
+      if (typeof rule === "function") {
+        const message = rule(values[ruleKey], values);
+        if (!!message) {
+          errObj[ruleKey] = rule.message || "Password incorrect. Please confirm password again";
+          break;
+        }
+      }
+
+      //Case: Check length of password
+      if(rule.lengthPassword && values[ruleKey]){
+        if(values[ruleKey].length < 6){
+          errObj[ruleKey] = rule.message || "Password must be at least 6 characters";
           break;
         }
       }

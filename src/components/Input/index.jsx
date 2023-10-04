@@ -1,6 +1,6 @@
 import React from "react";
 
-const Input = ({ label, required, error, renderInput, ...inputProps }) => {
+const   Input = ({ label, required, error, renderInput, ...inputProps }) => {
   return (
     <div className="form-group">
       <label className="label">
@@ -10,6 +10,7 @@ const Input = ({ label, required, error, renderInput, ...inputProps }) => {
         <input
           type="text"
           className={`form__input ${error ? "formerror" : ""}`}
+          {...inputProps}
         />
       )}
       {error && <p className="error">{error}</p>}

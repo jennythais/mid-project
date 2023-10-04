@@ -1,5 +1,5 @@
-import validate from "@/utils/validate";
 import { useState } from "react";
+import validate from "../utils/validate";
 
 const useForm = (initialValue, rules) => {
   const [form, setForm] = useState(initialValue);
@@ -25,6 +25,7 @@ const useForm = (initialValue, rules) => {
     error,
     register,
     validate: _validate,
+    setForm,
   };
 };
 

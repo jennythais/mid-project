@@ -1,8 +1,18 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
-
+import { useEffect } from "react";
+import { NavLink, Outlet } from "react-router-dom";
+import PATHS from "../../constants/paths";
+import { useAuthContext } from "../../context/AuthContext";
 
 const StudentProfilePage = () => {
+  const { profile, handleGetProfileCourse, handleGetProfilePayment } =
+    useAuthContext();
+  const { firstName, introduce, email, phone, website } = profile || {};
+  useEffect(() => {
+    handleGetProfileCourse();
+    handleGetProfilePayment();
+  }, []);
+
   return (
     <main className="mainwrapper profilepage">
       <div className="container">
@@ -12,61 +22,46 @@ const StudentProfilePage = () => {
               <div className="useravatar">
                 <div className="avatar">
                   <div className="img">
-                    <img src="img/avatar_nghia.jpg" alt="avatar" />
+                    <img src="/img/avatar_nghia.jpg" alt="avatar" />
                   </div>
                 </div>
-                <h3 className="title --t3">Trần Nghĩa</h3>
+                <h3 className="title --t3">{firstName}</h3>
               </div>
             </div>
             <div className="sidebar__content">
               <h4>Giới thiệu</h4>
-              <p className="description">
-                Cheerful, cafeful,friendly. I like listening to music, traveling
-                and coding, listening to music, traveling and coding.
-              </p>
+              <p className="description">{introduce}</p>
               <ul>
                 <li>
-                  <img src="img/icon-mail-outline.svg" alt="icon" />
-                  <span>trannghia2018@gmail.com</span>
+                  <img src="/img/icon-mail-outline.svg" alt="icon" />
+                  <span>{email}</span>
                 </li>
                 <li>
-                  <img src="img/icon-phone-outline.svg" alt="icon" />
-                  <span>098 9596 913</span>
+                  <img src="/img/icon-phone-outline.svg" alt="icon" />
+                  <span>{phone}</span>
                 </li>
                 <li>
-                  <img src="img/icon-link.svg" alt="icon" />
+                  <img src="/img/icon-link.svg" alt="icon" />
                   <a href="#" target="_blank">
-                    https://nghiatran.info
+                    {website}
                   </a>
                 </li>
               </ul>
-              <div className="social">
-                <a href="#">
-                  <img src="img/icon-facebook-dark.svg" alt />
-                </a>
-                <a href="#">
-                  <img src="img/icon-linkedin-dark.svg" alt />
-                </a>
-                <a href="#">
-                  <img src="img/icon-youtube-dark.svg" alt />
-                </a>
-              </div>
             </div>
           </div>
           <div className="tabwrap">
             <div className="tab">
               <div className="tab__title">
-                <a href="#" className="active">
+                <NavLink to={PATHS.PROFILE.INDEX} end>
                   Thông tin cá nhân
-                </a>
-                <a href="#">Khóa học của tôi</a>
-                <a href="#">Lịch sử thanh toán</a>
+                </NavLink>
+                <NavLink to={PATHS.PROFILE.MY_COURSE}>Khóa học của tôi</NavLink>
+                <NavLink to={PATHS.PROFILE.MY_PAYMENT}>
+                  Lịch sử thanh toán
+                </NavLink>
               </div>
               <div className="tab__content">
-                <Outlet/>
-                {/* <MyInfo/> */}
-                {/* <MyCourse/> */}
-                {/* <MyPayment/> */}
+                <Outlet />
               </div>
             </div>
           </div>
