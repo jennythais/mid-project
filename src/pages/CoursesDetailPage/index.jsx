@@ -52,7 +52,7 @@ const CoursesDetailPage = () => {
   const apiLoading = courseDetailLoading || questionLoading || courseLoading;
   const pageLoading = useDebounce(apiLoading, 500);
   if (pageLoading) {
-    return <ComponentLoading/>;
+    return <PageLoading/>;
   }
   return (
     <>

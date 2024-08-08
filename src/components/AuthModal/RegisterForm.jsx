@@ -12,7 +12,8 @@ import ComponentLoading from "../ComponentLoading/index";
 
 const RegisterForm = () => {
   const [loading, setLoading] = useState(false);
-  const { handleShowModal, handleCloseModal, handleRegister } = useAuthContext();
+  const { handleShowModal, handleCloseModal, handleRegister } =
+    useAuthContext();
   const { form, register, validate } = useForm(
     {
       name: "",
@@ -56,7 +57,7 @@ const RegisterForm = () => {
           // setTimeout(() => {
           //   setLoading(false);
           // }, 500);
-          setLoading(false)
+          setLoading(false);
         });
       }
     } else {

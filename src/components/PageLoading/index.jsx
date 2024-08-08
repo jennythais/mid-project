@@ -1,11 +1,7 @@
 import React from "react";
 
 const PageLoading = () => {
-  return (
-    <div>
-      <div />
-    </div>
-  );
+  return <div></div>;
 };
 
 export default PageLoading;

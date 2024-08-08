@@ -36,15 +36,17 @@ const validate = (rules, values) => {
       if (typeof rule === "function") {
         const message = rule(values[ruleKey], values);
         if (!!message) {
-          errObj[ruleKey] = rule.message || "Password incorrect. Please confirm password again";
+          errObj[ruleKey] =
+            rule.message || "Password incorrect. Please confirm password again";
           break;
         }
       }
 
       //Case: Check length of password
-      if(rule.lengthPassword && values[ruleKey]){
-        if(values[ruleKey].length < 6){
-          errObj[ruleKey] = rule.message || "Password must be at least 6 characters";
+      if (rule.lengthPassword && values[ruleKey]) {
+        if (values[ruleKey].length < 6) {
+          errObj[ruleKey] =
+            rule.message || "Password must be at least 6 characters";
           break;
         }
       }
